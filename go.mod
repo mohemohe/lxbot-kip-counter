@@ -1,6 +1,6 @@
 module github.com/mohemohe/lxbot-kip-counter
 
-go 1.22.2
+go 1.22
 
 require (
 	github.com/lxbot/lxlib/v2 v2.0.0 // indirect
