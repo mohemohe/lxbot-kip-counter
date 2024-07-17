@@ -1,0 +1,29 @@
+---
+version: "3.6"
+services:
+  lxbot:
+    image: ghcr.io/lxbot/lxbot
+    env_file:
+      - .env
+    volumes:
+      - adapter:/lxbot/adapters
+      - store:/lxbot/stores
+      - script-kip-counter:/lxbot/scripts/kip-counter
+      - ./store.json:/lxbot/store.json
+    restart: on-failure
+  adapter:
+    image: ghcr.io/lxbot/adapter-discord
+    volumes:
+      - adapter:/lxbot/adapters
+  store:
+    image: ghcr.io/lxbot/store-file
+    volumes:
+      - store:/lxbot/stores
+  script-kip-counter:
+    build: .
+    volumes:
+      - script-kip-counter:/lxbot/scripts
+volumes:
+  adapter:
+  store:
+  script-kip-counter:
