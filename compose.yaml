@@ -1,5 +1,4 @@
 ---
-version: "3.6"
 services:
   lxbot:
     image: ghcr.io/lxbot/lxbot
@@ -9,7 +8,7 @@ services:
       - adapter:/lxbot/adapters
       - store:/lxbot/stores
       - script-kip-counter:/lxbot/scripts/kip-counter
-      - ./store.json:/lxbot/store.json
+      - ./data:/lxbot/data
     restart: on-failure
   adapter:
     image: ghcr.io/lxbot/adapter-discord
